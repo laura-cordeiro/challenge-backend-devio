@@ -1,6 +1,8 @@
 import { DataTypes, Model } from 'sequelize';
 import { v4 as uuidv4 } from 'uuid';
 import sequelize from '../../infrastructure/database';
+import OrdersProductsModel from '../ordersProducts/ordersProductsModel';
+import PaymentsModel from '../payments/paymentsModel';
 import { Order } from './orderEntity';
 
 class OrdersModel extends Model<Order> {}
@@ -13,16 +15,16 @@ OrdersModel.init(
       allowNull: false,
       defaultValue: uuidv4(),
     },
-    totalPrice: {
-      type: DataTypes.DECIMAL,
+    clientName: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     obs: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    clientId: {
-      type: DataTypes.STRING,
+    totalPrice: {
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
   },
@@ -33,5 +35,17 @@ OrdersModel.init(
     sequelize,
   },
 );
+
+OrdersModel.hasMany(OrdersProductsModel, {
+  foreignKey: 'orderId',
+  sourceKey: 'id',
+  as: 'ordersProducts',
+});
+
+OrdersModel.hasMany(PaymentsModel, {
+  foreignKey: 'orderId',
+  sourceKey: 'id',
+  as: 'payments',
+});
 
 export default OrdersModel;
