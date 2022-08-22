@@ -19,11 +19,13 @@ export default {
         {
           id: '6d5f9b08-7066-4901-b185-c933b9c7d3b0',
           totalPrice: 71.0,
+          obs: '',
           clientId: '6d5f9b08-7066-4901-b185-c933b9c7d3b0',
         },
         {
           id: 'cf3b38df-2794-4dc4-9c77-2ad4974865b6',
           totalPrice: 46.0,
+          obs: '',
           clientId: 'b8d0c84a-e2ab-485f-870d-d5e6dde402e0',
         },
         {
