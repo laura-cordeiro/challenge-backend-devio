@@ -12,8 +12,8 @@ export default {
         },
         {
           id: 'c03ead02-f9c5-455d-8e42-79650a8cbac7',
-          totalPrice: 15.0,
-          obs: 'Usar leite sem lactose',
+          totalPrice: 68.0,
+          obs: 'Usar leite sem lactose em duas unidades',
           clientId: 'dc629b79-a05f-4f2c-986f-566e92ced116',
         },
         {
