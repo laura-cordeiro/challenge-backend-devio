@@ -1,8 +1,8 @@
 export interface Order {
   id: string;
-  totalPrice: number;
+  clientName: string;
   obs?: string;
-  clientId: string;
+  totalPrice: number;
   createdAt?: string;
   updatedAt?: string;
 }
