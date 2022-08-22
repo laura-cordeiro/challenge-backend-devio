@@ -13,16 +13,16 @@ OrdersModel.init(
       allowNull: false,
       defaultValue: uuidv4(),
     },
-    totalPrice: {
-      type: DataTypes.DECIMAL,
+    clientName: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     obs: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    clientId: {
-      type: DataTypes.STRING,
+    totalPrice: {
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
   },
