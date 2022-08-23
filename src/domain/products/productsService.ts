@@ -7,11 +7,16 @@ const ProductsService = {
     return products;
   },
 
-  async getProductById(id: string) {
+  async productExists(id: string) {
     const productExists = await ProductsModel.count({
       where: { id },
     });
-    if (!productExists) throw new Error('Pedido não encontrado');
+    return productExists;
+  },
+
+  async getProductById(id: string) {
+    const productExists = await this.productExists(id);
+    if (!productExists) throw new Error('Produto não encontrado');
     const productResum = await ProductsModel.findAll({
       where: { id },
       attributes: ['name', 'description', 'price'],
@@ -27,6 +32,15 @@ const ProductsService = {
       price,
     });
     return newProduct;
+  },
+
+  async getProductPrice(id: string) {
+    const productExists = await this.productExists(id);
+    if (!productExists) throw new Error('Produto não encontrado');
+    const priceValue = await ProductsModel.findOne({
+      where: { id },
+    });
+    return priceValue;
   },
 };
 
