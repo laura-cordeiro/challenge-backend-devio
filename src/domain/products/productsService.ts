@@ -19,7 +19,7 @@ const ProductsService = {
     if (!productExists) throw new Error('Produto não encontrado');
     const productResum = await ProductsModel.findAll({
       where: { id },
-      attributes: ['name', 'description', 'price'],
+      attributes: ['name', 'description', 'unitPrice'],
     });
     return productResum;
   },
