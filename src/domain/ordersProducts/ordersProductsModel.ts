@@ -1,7 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import { v4 as uuidv4 } from 'uuid';
 import sequelize from '../../infrastructure/database';
-import OrdersModel from '../orders/ordersModel';
 import ProductsModel from '../products/productsModel';
 import { OrderProduct } from './orderProductEntity';
 
@@ -22,18 +21,10 @@ OrdersProductsModel.init(
     orderId: {
       type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: OrdersModel,
-        key: 'id',
-      },
     },
     productId: {
       type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: ProductsModel,
-        key: 'id',
-      },
     },
   },
   {
@@ -44,13 +35,7 @@ OrdersProductsModel.init(
   },
 );
 
-OrdersProductsModel.hasOne(OrdersModel, {
-  foreignKey: 'id',
-  sourceKey: 'orderId',
-  as: 'orders',
-});
-
-OrdersProductsModel.hasOne(ProductsModel, {
+OrdersProductsModel.hasMany(ProductsModel, {
   foreignKey: 'id',
   sourceKey: 'productId',
   as: 'products',
