@@ -25,6 +25,10 @@ OrdersProductsModel.init(
     productId: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: ProductsModel,
+        key: 'id',
+      },
     },
   },
   {
@@ -35,7 +39,7 @@ OrdersProductsModel.init(
   },
 );
 
-OrdersProductsModel.hasMany(ProductsModel, {
+OrdersProductsModel.hasOne(ProductsModel, {
   foreignKey: 'id',
   sourceKey: 'productId',
   as: 'products',
