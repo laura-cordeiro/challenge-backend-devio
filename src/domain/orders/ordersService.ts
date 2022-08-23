@@ -7,7 +7,7 @@ import OrdersModel from './ordersModel';
 const OrdersService = {
   async getOrders() {
     const ordersResum = await OrdersModel.findAll({
-      attributes: ['id', 'clientName', 'totalPrice', 'obs'],
+      attributes: ['id', 'clientName', 'totalPrice', 'observation'],
       include: [
         {
           model: OrdersProductsModel,
@@ -32,13 +32,11 @@ const OrdersService = {
   },
 
   async getOrderById(id: string) {
-    const orderExists = await OrdersModel.count({
-      where: { id },
-    });
+    const orderExists = await OrdersModel.count({ where: { id } });
     if (!orderExists) throw new Error('Pedido não encontrado');
     const orderResum = await OrdersModel.findAll({
       where: { id },
-      attributes: ['id', 'clientName', 'totalPrice', 'obs'],
+      attributes: ['id', 'clientName', 'totalPrice', 'observation'],
       include: [
         {
           model: OrdersProductsModel,
@@ -62,18 +60,18 @@ const OrdersService = {
     return orderResum;
   },
 
-  async createOrder(clientName: string, obs: string) {
+  async createOrder(clientName: string, observation: string) {
     const newOrder = await OrdersModel.create({
       id: uuidv4(),
       clientName,
-      obs,
+      observation,
       totalPrice: 0,
     });
     return newOrder;
   },
 
-  async updateOrder(id: string, clientName: string, obs: string) {
-    await OrdersModel.update({ clientName, obs }, { where: { id } });
+  async updateOrder(id: string, clientName: string, observation: string) {
+    await OrdersModel.update({ clientName, observation }, { where: { id } });
     return this.getOrderById(id);
   },
 };

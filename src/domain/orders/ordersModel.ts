@@ -19,7 +19,7 @@ OrdersModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    obs: {
+    observation: {
       type: DataTypes.STRING,
       allowNull: true,
     },

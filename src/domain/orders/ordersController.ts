@@ -26,8 +26,8 @@ const OrdersController = {
 
   async createOrder(req: Request, res: Response) {
     try {
-      const { clientName, obs } = req.body;
-      const data = await OrdersService.createOrder(clientName, obs);
+      const { clientName, observation } = req.body;
+      const data = await OrdersService.createOrder(clientName, observation);
       res.status(200);
       res.json(data);
     } catch (err: any) {
@@ -39,8 +39,8 @@ const OrdersController = {
   async updateOrder(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const { clientName, obs } = req.body;
-      const data = await OrdersService.updateOrder(id, clientName, obs);
+      const { clientName, observation } = req.body;
+      const data = await OrdersService.updateOrder(id, clientName, observation);
       res.status(200);
       res.json(data);
     } catch (err: any) {
