@@ -17,7 +17,7 @@ const OrdersService = {
             {
               model: ProductsModel,
               as: 'products',
-              attributes: ['name', 'description', 'unitPrice'],
+              attributes: ['id', 'name', 'description', 'unitPrice'],
             },
           ],
         },
@@ -70,8 +70,16 @@ const OrdersService = {
     return newOrder;
   },
 
-  async updateOrder(id: string, clientName: string, observation: string) {
-    await OrdersModel.update({ clientName, observation }, { where: { id } });
+  async updateOrder(
+    id: string,
+    clientName: string,
+    observation: string,
+    totalPrice: number,
+  ) {
+    await OrdersModel.update(
+      { clientName, observation, totalPrice },
+      { where: { id } },
+    );
     return this.getOrderById(id);
   },
 };
