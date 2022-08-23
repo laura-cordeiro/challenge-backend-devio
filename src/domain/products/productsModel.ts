@@ -21,7 +21,7 @@ ProductsModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    price: {
+    unitPrice: {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
