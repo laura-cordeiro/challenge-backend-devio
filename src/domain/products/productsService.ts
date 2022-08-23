@@ -24,12 +24,12 @@ const ProductsService = {
     return productResum;
   },
 
-  async createProduct(name: string, description: string, price: number) {
+  async createProduct(name: string, description: string, unitPrice: number) {
     const newProduct = await ProductsModel.create({
       id: uuidv4(),
       name,
       description,
-      price,
+      unitPrice,
     });
     return newProduct;
   },
