@@ -14,7 +14,7 @@ describe('No controller de OrdersProducts ao executar a função', () => {
       expect(expectResponse.status).toBe(201);
     });
     test('Em caso de erro, retornar o status 500', async () => {
-      const expectResponse = await supertest(app).get('/fasdff');
+      const expectResponse = await supertest(app).post('/fasdff');
       expect(expectResponse.status).toBe(500);
     });
   });
@@ -27,15 +27,15 @@ describe('No controller de OrdersProducts ao executar a função', () => {
       expect(expectResponse.status).toBe(200);
     });
     test('Em caso de pedido inexistente, retornar mensagem de erro', async () => {
-      const expectResponse = await supertest(app).get(
+      const expectResponse = await supertest(app).delete(
         '/orders/09d00063-88de-440c-ae56-21475fc3ac',
       );
-      expect(expectResponse.status).toBe(400);
+      expect(expectResponse.status).toBe(500);
     });
   });
 
   describe('updateProductsByOrderId,', () => {
-    test('Em caso de sucesso, retornar o pedido criado', async () => {
+    test('Em caso de sucesso, retornar o status 200', async () => {
       const expectResponse = await supertest(app)
         .patch('/orders/09d00063-88de-440c-ae56-21475fc3ac46')
         .send({ productId, quantity });
