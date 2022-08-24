@@ -27,7 +27,7 @@ const PaymentsService = {
     // eslint-disable-next-line camelcase
     type: enum_payment,
   ) {
-    const updatePayment = await PaymentsModel.update(
+    await PaymentsModel.update(
       {
         id,
         type,
