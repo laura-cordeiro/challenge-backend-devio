@@ -1,4 +1,4 @@
-{
+module.exports = {
   "extends": [
     "airbnb",
     "airbnb/hooks",
@@ -11,6 +11,7 @@
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
+    "tsconfigRootDir": __dirname,
     "project": "./tsconfig.json"
   },
   "rules": {
@@ -31,6 +32,7 @@
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "import/prefer-default-export": 0,
-    "global-require": 0
+    "global-require": 0,
+    '@typescript-eslint/no-explicit-any': ['off'],
   }
 }

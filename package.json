@@ -4,10 +4,10 @@
   "description": "Challenge backend - Devio",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install",
+    "test": "npm run setup:dev && jest",
+    "start": "node dist/index.js",
     "dev": "ts-node-dev src/index.ts",
-    "build": "tsc",
+    "build": "rm -rf dist/ && tsc",
     "db:reset": "npx sequelize db:migrate:undo:all --migrations-path dist/infrastructure/database/migrations",
     "setup:dev": "npm run build && npm run db:reset &&  npx sequelize db:migrate --migrations-path dist/infrastructure/database/migrations && npx sequelize db:seed:all --seeders-path dist/infrastructure/database/seeders"
   },
