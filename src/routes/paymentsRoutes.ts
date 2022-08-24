@@ -9,4 +9,6 @@ paymentsRouter.post(
   PaymentsController.createPaymentByOrderId,
 );
 
+paymentsRouter.patch('/payments/:id', PaymentsController.updatePaymentById);
+
 export default paymentsRouter;

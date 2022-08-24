@@ -21,5 +21,20 @@ const PaymentsService = {
     });
     return addPayment;
   },
+
+  async updatePaymentById(
+    id: string,
+    // eslint-disable-next-line camelcase
+    type: enum_payment,
+  ) {
+    const updatePayment = await PaymentsModel.update(
+      {
+        id,
+        type,
+      },
+      { where: { id } },
+    );
+  },
 };
+
 export default PaymentsService;
