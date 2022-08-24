@@ -8,7 +8,7 @@ const OrdersController = {
       res.status(200);
       res.json(data);
     } catch (err: any) {
-      res.status(400);
+      res.status(500);
       res.json({ message: err.message });
     }
   },
@@ -28,7 +28,7 @@ const OrdersController = {
     try {
       const { clientName, observation } = req.body;
       const data = await OrdersService.createOrder(clientName, observation);
-      res.status(200);
+      res.status(201);
       res.json(data);
     } catch (err: any) {
       res.status(400);
