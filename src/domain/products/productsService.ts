@@ -34,6 +34,22 @@ const ProductsService = {
     return newProduct;
   },
 
+  async updateProductById(
+    id: string,
+    name: string,
+    description: string,
+    unitPrice: number,
+  ) {
+    await ProductsModel.update(
+      {
+        name,
+        description,
+        unitPrice,
+      },
+      { where: { id } },
+    );
+  },
+
   async getProductPrice(id: string) {
     const productExists = await this.productExists(id);
     if (!productExists) throw new Error('Produto não encontrado');

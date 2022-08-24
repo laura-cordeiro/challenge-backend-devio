@@ -40,6 +40,24 @@ const ProductsController = {
     }
   },
 
+  async updateProductById(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const { name, description, price } = req.body;
+      const data = await ProductsService.updateProductById(
+        id,
+        name,
+        description,
+        price,
+      );
+      res.status(200);
+      res.json(data);
+    } catch (err: any) {
+      res.status(400);
+      res.json({ message: err.message });
+    }
+  },
+
   async getProductPrice(req: Request, res: Response) {
     try {
       const data = await ProductsService.getProductPrice(req.params.id);
