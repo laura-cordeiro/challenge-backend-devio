@@ -11,10 +11,10 @@ const OrdersProductsController = {
         quantity,
         productId,
       );
-      res.status(200);
+      res.status(201);
       res.json(data);
     } catch (err: any) {
-      res.status(400);
+      res.status(500);
       res.json({ message: err.message });
     }
   },
