@@ -8,7 +8,7 @@ const ProductsController = {
       res.status(200);
       res.json(data);
     } catch (err: any) {
-      res.status(400);
+      res.status(500);
       res.json({ message: err.message });
     }
   },
@@ -32,7 +32,7 @@ const ProductsController = {
         description,
         price,
       );
-      res.status(200);
+      res.status(201);
       res.json(data);
     } catch (err: any) {
       res.status(400);
