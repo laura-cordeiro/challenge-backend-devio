@@ -2,7 +2,7 @@
 
 # Challenge Fast Food | Back-end - Devio </h1>
 
-Projeto de API para gerir os pedidos dos clientes de um restaurante fast-food. 
+Projeto de API para gerir os pedidos dos clientes de um restaurante fast-food. Deploy feito através do Heroku e base de dados na AWS.
 
 ### 🔧 Instalação
 
@@ -42,6 +42,12 @@ Os testes podem ser feitos no Postman, seguindo a documentação abaixo.
 
 Você pode acessar a documentação da API [aqui.](https://documenter.getpostman.com/view/21580138/VUqsqb1B)
 
+## ⚙️ Executando os testes
+
+Para rodar os testes unitários, digitar o comando:
+```
+npm run test
+```
 ## 🛠️ Construído com
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
