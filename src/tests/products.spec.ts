@@ -55,7 +55,7 @@ describe('No controller de Products ao executar a função', () => {
       expect(expectResponse.status).toBe(200);
     });
     test('Em caso de produto inexistente, retornar mensagem de erro', async () => {
-      const expectResponse = await supertest(app).get(
+      const expectResponse = await supertest(app).patch(
         '/orders/0260b8ad-d98e-410e-a96e-f9e5a4e',
       );
       expect(expectResponse.status).toBe(400);
