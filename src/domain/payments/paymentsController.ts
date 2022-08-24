@@ -18,7 +18,7 @@ const PaymentsController = {
       const { orderId } = req.params;
       const { type } = req.body;
       const data = await PaymentsService.createPaymentByOrderId(orderId, type);
-      res.status(200);
+      res.status(201);
       res.json(data);
     } catch (err: any) {
       res.status(400);
