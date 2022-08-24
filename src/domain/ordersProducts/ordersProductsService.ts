@@ -17,8 +17,15 @@ const OrdersProductsService = {
     return addProducts;
   },
 
-  async updateProductsByOrderId(orderId: string, productId: string) {
-    await OrdersProductsModel.update({ productId }, { where: { orderId } });
+  async updateProductsByOrderId(
+    orderId: string,
+    productId: string,
+    quantity: number,
+  ) {
+    await OrdersProductsModel.update(
+      { productId, quantity },
+      { where: { orderId } },
+    );
     return OrdersService.getOrderById;
   },
 

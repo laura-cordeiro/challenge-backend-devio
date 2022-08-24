@@ -22,10 +22,11 @@ const OrdersProductsController = {
   async updateProductsByOrderId(req: Request, res: Response) {
     try {
       const { orderId } = req.params;
-      const { productId } = req.body;
+      const { productId, quantity } = req.body;
       const data = await OrdersProductsService.updateProductsByOrderId(
         orderId,
         productId,
+        quantity,
       );
       res.status(200);
       res.json(data);
