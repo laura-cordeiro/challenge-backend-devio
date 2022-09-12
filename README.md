@@ -1,6 +1,6 @@
 
 
-# Challenge Fast Food | Back-end - Devio </h1>
+# Challenge Fast Food | Back-end (teste de empresa) </h1>
 
 Projeto de API para gerir os pedidos dos clientes de um restaurante fast-food. Deploy feito através do Heroku e base de dados na AWS.
 
